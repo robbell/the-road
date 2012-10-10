@@ -4,6 +4,8 @@ namespace TheRoad.Tests
     {
         private Area north;
         private Area south;
+        private Area east;
+        private Area west;
 
         public Area North
         {
@@ -22,6 +24,26 @@ namespace TheRoad.Tests
             {
                 south = value;
                 if (value != null && value.North != this) value.North = this;
+            }
+        }
+
+        public Area East
+        {
+            get { return east; }
+            set
+            {
+                east = value;
+                if (value != null && value.West != this) value.West = this;
+            }
+        }
+
+        public Area West
+        {
+            get { return west; }
+            set
+            {
+                west = value;
+                if (value != null && value.East != this) value.East = this;
             }
         }
     }
